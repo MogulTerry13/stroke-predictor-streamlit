@@ -3,14 +3,15 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-
+import xgboost as xgb
 
 
 # Load models and transformers
-xgb_model = joblib.load("xgb_model.pkl")
 log_model = joblib.load("log_model.pkl")
 scaler = joblib.load("scaler.pkl")
 preprocessor = joblib.load("preprocessor.pkl")
+xgb_model = xgb.XGBClassifier()
+xgb_model.load_model("xgb_model.json")
 
 
 
